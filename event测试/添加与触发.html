@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript" src="../event.js"></script>
+    <script type="text/javascript">
+        var et = new event();
+        et.on('success',function(){
+            console.log('success类型事件1')
+            console.log('参数:'+JSON.stringify(arguments))
+        });
+        et.on('success',function(){
+            console.log('success类型事件2')
+            console.log('参数:'+JSON.stringify(arguments))
+        });
+        et.on('success',function(){
+            console.log('success类型事件3');
+            console.log('参数:'+JSON.stringify(arguments))
+        });
+        et.emit('success','pp','hu'); //上面的监听全部调用一次
+        console.log(et.handlers)
+        et.once('success','pp','hu');
+        console.log(et.handlers)
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript" src="../event.js"></script>
+    <script type="text/javascript">
+        var et = new event();
+        et.on('success',cb1);
+        function cb1(){ //无法删除匿名函数，独立出来
+            console.log('success类型事件1')
+            console.log('参数:'+JSON.stringify(arguments))
+        }
+        et.on('success',function(){
+            console.log('success类型事件2')
+            console.log('参数:'+JSON.stringify(arguments))
+        });
+        et.on('success',function(){
+            console.log('success类型事件3');
+            console.log('参数:'+JSON.stringify(arguments))
+        });
+        et.emit('success','pp','hu');
+        et.removeOne('success',cb1);
+        console.log(et.handlers) //只有第二个和第三个匿名函数
+        et.removeAll('success');
+        console.log(et.handlers) //undefined
+    </script>
+</body>
+</html>
