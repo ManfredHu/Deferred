@@ -64,3 +64,4 @@ event.prototype = {
     }
 };
 
+module.exports = event;
