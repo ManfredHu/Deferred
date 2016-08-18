@@ -18,3 +18,6 @@ type为事件类型，推荐使用.命名空间法，如个人中心模块`cente
 - removeAll对应监听的全部
 
 例子在`event测试文件夹里`
+
+## 例子
+Download 后 `node index.js`就可以，除了node以外不依赖任何其他模块
